@@ -10,4 +10,12 @@ class Tag extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+
+    public function getSlugAttribute()
+    {
+        return strtolower(
+            str_replace(' ','-',$this->name)
+        );
+    }
+
 }
